@@ -1,7 +1,7 @@
 Install Elixir 1.0.4 (on Mint 17)
 =================================
 
-##### A bash script that downloads, installs,and adds to $PATH both Erlang 17.5 and Elixir 1.0.4.
+##### A bash script that downloads, installs, and adds to $PATH both Erlang 17.5 and Elixir 1.0.4.
 
 This script installs Erlang 17.5 from source and Elixir 1.0.4
 from precomplized zip. Installation took approximately
