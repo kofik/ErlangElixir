@@ -9,8 +9,8 @@ from precomplized zip. Installation took approximately
 This script should work (read: was only tested) on Mint
 Rebecca 17.1, but honestly should work on most Linux debian distros.
 
-Setup
------
+Installation
+------------
 
 Make sure when you clone this repo that the files will persist (not a tmp/ dir)
 
