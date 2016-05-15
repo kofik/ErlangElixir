@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# This script installs Erlang 17.5 from source and Elixir 1.0.4
+# This script installs Erlang 17.5 from source and Elixir 1.2
 # from precomplized zip. Installation took approximately
 # 40 minutes with a crappy computer and crappy internet connetion.
 # This script should work (read: was only tested) on Mint
-# Rebecca 17.1, but honestly should work on most Linux debian distros.
+# Rosa 17.3, but honestly should work on most Linux debian distros.
 
 # INSTRUCTIONS:
 # Pull this into a directory that will persist. (not tmp)
-# $ chmod u+x install_erlang_and_elixir.sh
-# $ sudo ./install_erlang_and_elixir.sh
+# $ chmod u+x install_erlangElixir.sh
+# $ sudo ./install_erlangElixir.sh
 # Logout and Log in. 
 
 # For additional help visit Elixir's IRC channel @ #elixir-lang
@@ -27,6 +27,8 @@
 
 # This script comes with no guarantees with regards to
 # security or safety. Use at your own risk.
+
+#Updated by isaakbarra@gmail.com
 
 if [ $(id -u) != "0" ]; then
 echo "You must be the superuser to run this script" >&2
@@ -57,45 +59,48 @@ apt-get -y install libssh-dev
 apt-get -y install unixodbc-dev
 
 
-mkdir erlang_and_elixir
-mkdir erlang_and_elixir/erlang
-mkdir erlang_and_elixir/elixir-v1.0.4
+mkdir erlangElixir
+mkdir erlangElixir/erlang
+mkdir erlangElixir/elixir-v1.2
 
-cd erlang_and_elixir
+cd erlangElixir
 
 cd erlang
 
-if [ -e otp_src_17.5.tar.gz ]; then
-echo "Good! 'otp_src_17.5.tar.gz' already exists. Skipping download."
+if [ -e otp_src_18.3.tar.gz ]; then
+echo "Good! 'otp_src_18.3.tar.gz' already exists. Skipping download."
 else
-wget http://www.erlang.org/download/otp_src_17.5.tar.gz
+wget http://erlang.org/download/otp_src_18.3.tar.gz
 fi
 
 #install erlang. This takes 1 minute shy of forever.
-tar -xvf otp_src_17.5.tar.gz
-cd otp_src_17.5
+tar -xvf otp_src_18.3.tar.gz
+cd otp_src_18.3
 ERL_TOP=`pwd`
 ./configure
 make
 sudo make install
-cd .. # exit otp_src_17.5
+cd .. # exit otp_src_18.3
 cd .. # exit erlang dir
 
 
 #install Elixir precompiled binary.
-cd elixir-v1.0.4
-wget https://github.com/elixir-lang/elixir/releases/download/v1.0.4/Precompiled.zip
-unzip Precompiled.zip
-ELIXIR_TOP=`pwd`
+cd elixir-v1.2
+#wget https://github.com/elixir-lang/elixir/archive/master.zip
+git clone https://github.com/elixir-lang/elixir.git
+cd elixir
+make clean
+make test
+ELIXIR_TOP='pwd'
 cd .. # exit elixir dir
-cd .. # exit erlang_and_elixir
+cd .. # exit erlangElixir
 
 echo "export PATH=\"\$PATH:$ERL_TOP/bin\"" >> $HOME/.profile
 echo "export PATH=\"\$PATH:$ELIXIR_TOP/bin\"" >> $HOME/.profile
 
 . $HOME/.profile
 
-echo "Congratulations. You now have Erlang 17.5 and Elixir 1.0.4 installed!"
+echo "Congratulations. You now have Erlang 18.3 and Elixir 1.2 installed!"
 echo "Just Log out and Log back in to reload your ~/.profile file."
 
 
