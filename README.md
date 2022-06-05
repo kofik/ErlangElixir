@@ -34,7 +34,3 @@ Erlang/OTP 18 [erts-6.4] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [
 Interactive Elixir (1.2) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)> 
 
-
-```
-Check the original post here
-https://github.com/DataMelon/install-elixir-1.0.4
