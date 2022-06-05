@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script installs Erlang 17.5 from source and Elixir 1.2
+# This script installs Erlang 18.3 from source and Elixir 1.2
 # from precomplized zip. Installation took approximately
 # 40 minutes with a crappy computer and crappy internet connetion.
 # This script should work (read: was only tested) on Mint
@@ -14,16 +14,6 @@
 
 # For additional help visit Elixir's IRC channel @ #elixir-lang
 # on freenode (everyone is very helpful)
-
-# Made by Jason Goldberger
-# with some help from https://gist.github.com/bryanhunter/10380945
-# and erlang's readme
-
-# email: jason@datamelon.io
-# github: https://github.com/elbow-jason
-
-# In loving memory of Rick Carlino.
-# May he forever show us the funny.
 
 # This script comes with no guarantees with regards to
 # security or safety. Use at your own risk.
